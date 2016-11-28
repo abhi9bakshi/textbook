@@ -1,0 +1,41 @@
+﻿@model User
+
+@{
+    ViewBag.Title = "Login page";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Register</title>
+</head>
+<body>
+    @using (Html.BeginForm("Login","Account"))
+    {
+        <div>
+            <fieldset>
+                <legend> login </legend>
+                @Html.ValidationSummary(true, "Login Failed, Enter correct email and password")
+                <div class="form-group">
+                    @Html.LabelFor(item => item.Email)
+                    @Html.TextAreaFor(item => item.Email)
+                    @Html.ValidationMessageFor(item => item.Email)
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(item => item.HashedPassword)
+                    @Html.PasswordFor(item => item.HashedPassword)
+                    @Html.ValidationMessageFor(item => item.HashedPassword)
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Submit" class="btn btn-default" />
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+
+    }
+</body>
+</html>
